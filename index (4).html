@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antara Dua Tangan - E-Reader</title>
+    <style>
+        :root {
+            --primary-color: #3a506b;
+            --secondary-color: #5bc0be;
+            --dark-color: #1c2541;
+            --light-bg: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Top Navbar */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        .logo-area h1 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-area p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* Nav Menu Styles */
+        nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-item {
+            position: relative;
+            display: inline-block;
+        }
+
+        .nav-btn {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            padding: 10px 16px;
+            font-size: 0.9rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-btn.active-link {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            font-weight: bold;
+        }
+
+        /* Dropdown Content */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--white);
+            min-width: 280px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15);
+            border-radius: 4px;
+            overflow: hidden;
+            z-index: 101;
+            margin-top: 5px;
+        }
+
+        .dropdown-content a {
+            color: var(--dark-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.88rem;
+            border-bottom: 1px solid #edf2f4;
+            transition: background 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #edf2f4;
+            color: var(--primary-color);
+        }
+
+        .dropdown-content a.sub-item {
+            padding-left: 30px;
+            font-size: 0.82rem;
+            color: #555;
+            background-color: #fafafa;
+        }
+
+        .dropdown-content a.sub-item:hover {
+            background-color: #edf2f4;
+        }
+
+        /* Show Dropdown on Hover/Click */
+        .nav-item:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Main Content Area containing Iframe */
+        .main-container {
+            flex: 1;
+            position: relative;
+            width: 100%;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: var(--white);
+        }
+
+        /* Responsivitas */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 10px;
+                padding: 12px;
+            }
+            nav {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .nav-btn {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+            .dropdown-content {
+                position: fixed;
+                left: 10px;
+                right: 10px;
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <h1>Antara Dua Tangan</h1>
+            <p>Hadis-Hadis tentang Dermawan & Larangan Meminta-minta</p>
+        </div>
+        <nav>
+            <button class="nav-btn" onclick="loadPage('home.html', this)">Sampul</button>
+            <button class="nav-btn" onclick="loadPage('kata_pengantar.html', this)">Pengantar</button>
+            <button class="nav-btn" onclick="loadPage('pendahuluan.html', this)">Pendahuluan</button>
+            
+            <div class="nav-item">
+                <button class="nav-btn">Bab I ▾</button>
+                <div class="dropdown-content">
+                    <a href="javascript:void(0)" onclick="loadPage('bab1.html#bab1-main', this)"><b>Bab I. Kedermawanan</b></a>
+                    <a href="javascript:void(0)" onclick="loadPage('bab1.html#sub1-a', this)" class="sub-item">a. Keutamaan Tangan yang Memberi</a>
+                    <a href="javascript:void(0)" onclick="loadPage('bab1.html#sub1-b', this)" class="sub-item">b. Sedekah yang Lebih Baik</a>
+                    <a href="javascript:void(0)" onclick="loadPage('bab1.html#sub1-c', this)" class="sub-item">c. Sedekah yang Paling Utama</a>
+                    <a href="javascript:void(0)" onclick="loadPage('bab1.html#sub1-d', this)" class="sub-item">d. Tentang Harta dan Keikhlasan</a>
+                    <a href="javascript:void(0)" onclick="loadPage('bab1.html#sub1-e', this)" class="sub-item">e. Tentang Sedekah Dan Kehormatan</a>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <button class="nav-btn">Bab II ▾</button>
+                <div class="dropdown-content">
+                    <a href="javascript:void(0)" onclick="loadPage('bab2.html#bab2-main', this)"><b>Bab II. Larangan Meminta</b></a>
+                    <a href="javascript:void(0)" onclick="loadPage('bab2.html#sub2-a', this)" class="sub-item">a. Larangan Meminta dengan Memaksa</a>
+                    <a href="javascript:void(0)" onclick="loadPage('bab2.html#sub2-b', this)" class="sub-item">b. Meminta untuk Kekayaan</a>
+                    <a href="javascript:void(0)" onclick="loadPage('bab2.html#sub2-c', this)" class="sub-item">c. Meminta Hingga Hilang Kehormatan</a>
+                    <a href="javascript:void(0)" onclick="loadPage('bab2.html#sub2-d', this)" class="sub-item">d. Lebih Baik Bekerja</a>
+                    <a href="javascript:void(0)" onclick="loadPage('bab2.html#sub2-e', this)" class="sub-item">e. Meminta Tanpa Kebutuhan</a>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                <button class="nav-btn">Bab III ▾</button>
+                <div class="dropdown-content">
+                    <a href="javascript:void(0)" onclick="loadPage('bab3.html#bab3-main', this)"><b>Bab III. Implementasi</b></a>
+                    <a href="javascript:void(0)" onclick="loadPage('bab3.html#sub3-a', this)" class="sub-item">a. Implementasi Sehari-hari</a>
+                    <a href="javascript:void(0)" onclick="loadPage('bab3.html#sub3-b', this)" class="sub-item">b. Ciri Kepribadian Mulia</a>
+                    <a href="javascript:void(0)" onclick="loadPage('bab3.html#sub3-c', this)" class="sub-item">c. Keutamaan Dermawan</a>
+                    <a href="javascript:void(0)" onclick="loadPage('bab3.html#sub3-d', this)" class="sub-item">d. Dermawan dalam Islam</a>
+                    <a href="javascript:void(0)" onclick="loadPage('bab3.html#sub3-e', this)" class="sub-item">e. Pengaruh Dunia & Akhirat</a>
+                </div>
+            </div>
+
+            <button class="nav-btn" onclick="loadPage('daftar_pustaka.html', this)">Pustaka</button>
+            <button class="nav-btn" onclick="loadPage('profil.html', this)">Profil</button>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <iframe src="home.html" name="contentFrame" id="contentFrame"></iframe>
+    </div>
+
+    <script>
+        function loadPage(url, element) {
+            const iframe = document.getElementById('contentFrame');
+            iframe.src = url;
+            
+            // Atur highlight class aktif jika tombol langsung diklik
+            if(element && element.tagName === 'BUTTON') {
+                document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active-link'));
+                element.classList.add('active-link');
+            }
+        }
+    </script>
+</body>
+</html>

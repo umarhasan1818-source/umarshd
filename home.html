@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { display: flex; align-items: center; justify-content: center; min-height: 80vh; }
+        .cover-card {
+            text-align: center;
+            border: 4px double #3a506b;
+            padding: 60px 40px;
+            border-radius: 4px;
+            background: #fff;
+            max-width: 550px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        /* SVG Representasi Garis Tangan di Atas & Bawah */
+        .cover-svg { width: 150px; height: auto; margin-bottom: 20px; opacity: 0.8; }
+        h1 { font-family: 'Segoe UI', sans-serif; color: #3a506b; font-size: 2.5rem; margin-bottom: 10px; }
+        .subtitle { font-size: 1.2rem; color: #666; margin-bottom: 40px; border-bottom: 1px solid #ddd; padding-bottom: 20px; }
+        .author { font-weight: bold; font-size: 1.1rem; color: #2b2d42; }
+    </style>
+</head>
+<body>
+    <div class="cover-card">
+        <svg class="cover-svg" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 20 Q 35 10, 60 20 T 90 20" fill="none" stroke="#3a506b" stroke-width="2"/>
+            <path d="M10 45 Q 35 55, 60 45 T 90 45" fill="none" stroke="#5bc0be" stroke-width="2"/>
+        </svg>
+        <h1>Antara Dua Tangan</h1>
+        <div class="subtitle">Hadis-Hadis tentang Dermawan dan Larangan Meminta-minta</div>
+        <div class="author">Melisa Nur Azizah</div>
+    </div>
+</body>
+</html>
